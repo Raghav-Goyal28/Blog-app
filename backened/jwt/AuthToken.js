@@ -8,9 +8,10 @@ const token=jwt.sign({userId},process.env.JWT_SECRET_KEY,{
 })
 
 res.cookie("jwt",token,{
-    httpOnly:false,
+    httpOnly:true,
     secure:true,
-    sameSite:"none"
+    sameSite:"strict",
+    path: "/", // Ensure the cookie is available throughout the site
 })
 
 await User.findByIdAndUpdate(userId,{token});

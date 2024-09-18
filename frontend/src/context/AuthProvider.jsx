@@ -14,24 +14,29 @@ export const AuthProvider=({children})=>{
     useEffect(()=>{
 
         const fetchProfile = async () => {
-            try {
-              
-             
-              
-                const { data } = await axios.get(
-                  "http://localhost:4001/api/users/my-profile",
-                  {
-                    withCredentials: true,
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  }
-                );
-                console.log(data.user);
-                setProfile(data);
-                setIsAuthenticated(true);
-              
-            } catch (error) {
+           
+               
+          try {
+            // token should be let type variable because its value will change in every login. (in backend also)
+            let token = localStorage.getItem("jwt"); // Retrieve the token directly from the localStorage (Go to login.jsx)
+            console.log(token);
+            if (token) {
+              const { data } = await axios.get(
+                "http://localhost:4001/api/users/my-profile",
+                {
+                  withCredentials: true,
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              console.log(data.user);
+              setProfile(data.user);
+              setIsAuthenticated(true);
+            }
+          } 
+            
+          catch (error) {
               console.log(error);
             }
           };
