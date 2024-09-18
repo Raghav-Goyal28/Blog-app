@@ -4,13 +4,13 @@ import { User } from "../models/user.model.js"
 const createTokenandAndSaveCookie=async(userId,res)=>{
 
 const token=jwt.sign({userId},process.env.JWT_SECRET_KEY,{
-    expiresIn:"7d"
+    expiresIn:"30d"
 })
 
 res.cookie("jwt",token,{
     httpOnly:true,
     secure:true,
-    sameSite:"strict",
+    sameSite:"lax",
     path: "/", // Ensure the cookie is available throughout the site
 })
 
