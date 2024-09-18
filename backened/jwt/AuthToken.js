@@ -9,7 +9,7 @@ const token=jwt.sign({userId},process.env.JWT_SECRET_KEY,{
 
 res.cookie("jwt",token,{
     httpOnly:true,
-    secure:true,
+    secure:false,
     sameSite:"lax",
     path: "/", // Ensure the cookie is available throughout the site
 })
