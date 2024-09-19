@@ -34,7 +34,7 @@ function Sidebar({ setComponent }) {
       navigateTo("/login");
     } catch (error) {
       console.log(error);
-      toast.error(error.data.message || "Failed to logout");
+ 
     }
   };
 

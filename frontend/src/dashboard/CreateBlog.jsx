@@ -1,6 +1,6 @@
 import axios from "axios";
 import  { useState } from "react";
-import toast from "react-hot-toast";
+
 
 function CreateBlog() {
   const [title, setTitle] = useState("");
@@ -41,7 +41,7 @@ function CreateBlog() {
         }
       );
       console.log(data);
-      toast.success(data.message || "User registered successfully");
+     
       setTitle("");
       setCategory("");
       setAbout("");
@@ -49,7 +49,7 @@ function CreateBlog() {
       setBlogImagePreview("");
     } catch (error) {
       console.log(error);
-      toast.error(error.message || "Please fill the required fields");
+     
     }
   };
   return (

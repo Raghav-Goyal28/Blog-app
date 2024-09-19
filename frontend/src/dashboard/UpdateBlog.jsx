@@ -71,13 +71,11 @@ const handleUpdate = async (e) => {
       }
     );
     console.log(data);
-    toast.success(data.message || "Blog updated successfully");
+
     navigateTo("/");
   } catch (error) {
     console.log(error);
-    toast.error(
-      error.response.data.message || "Please fill the required fields"
-    );
+   
   }
 };
   return (
