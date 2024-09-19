@@ -1,1 +1,1 @@
-export const BACKENED_URL="http://localhost:4001"
+export const BACKENED_URL="https://blog-app-5-7qfm.onrender.com"
