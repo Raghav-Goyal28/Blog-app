@@ -19,6 +19,10 @@ import bodyParser from "body-parser";
 app.use(bodyParser.json());//req.body
 app.use(cookieParser());
 
+
+
+
+
 app.use(cors({
   origin: process.env.FRONTEND_URL,
     credentials: true,
