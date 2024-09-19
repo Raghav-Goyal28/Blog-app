@@ -11,7 +11,7 @@ res.cookie("jwt",token,{
     httpOnly:true,
     secure:true,
     sameSite:"strict",
-    path: "/", // Ensure the cookie is available throughout the site
+ 
 })
 
 await User.findByIdAndUpdate(userId,{token});
