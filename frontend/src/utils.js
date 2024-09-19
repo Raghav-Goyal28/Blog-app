@@ -1,0 +1,1 @@
+export const BACKENED_URL="http://localhost:4001"
