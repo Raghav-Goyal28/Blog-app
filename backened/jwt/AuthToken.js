@@ -8,9 +8,10 @@ const token=jwt.sign({userId},process.env.JWT_SECRET_KEY,{
 })
 
 res.cookie("jwt",token,{
-    httpOnly:false,
-    secure:true,
-    sameSite:"none",
+    httpOnly:true,
+    secure:false,
+    sameSite:"lax",
+    path:"/"
  
 })
 

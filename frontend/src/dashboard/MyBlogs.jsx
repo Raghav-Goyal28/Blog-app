@@ -28,11 +28,13 @@ function MyBlogs() {
         withCredentials: true,
       })
       .then((res) => {
-        toast.success(res.data.message || "Blog deleted successfully");
+        console.log(res)
+        toast.success( "Blog deleted successfully");
         setMyBlogs((value) => value.filter((blog) => blog._id !== id));
       })
       .catch((error) => {
-        toast.error(error.response.message || "Failed to delete blog");
+        console.log(error)
+        toast.error( "Failed to delete blog");
       });
   };
   return (
@@ -47,7 +49,7 @@ function MyBlogs() {
               >
                 {element?.blogImage && (
                   <img
-                    src={element?.blogImage.url}
+                    src={element?.blogImage?.url}
                     alt="blogImg"
                     className="w-full h-48 object-cover"
                   />
