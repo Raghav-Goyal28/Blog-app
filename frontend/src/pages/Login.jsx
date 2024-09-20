@@ -16,8 +16,9 @@ function Login() {
     e.preventDefault();
 
     try {
+      console.log(import.meta.env.VITE_B_URL);
       const { data } = await axios.post(
-        "http://localhost:4001/api/users/login",
+        `${import.meta.env.VITE_B_URL}/api/users/login`,
         { email, password, role },
         {
           withCredentials: true,

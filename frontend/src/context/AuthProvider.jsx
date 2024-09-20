@@ -22,7 +22,7 @@ export const AuthProvider=({children})=>{
             console.log(token);
             if (token) {
               const { data } = await axios.get(
-                "http://localhost:4001/api/users/my-profile",
+                `${import.meta.env.VITE_B_URL}/api/users/my-profile`,
                 {
                   withCredentials: true,
                   headers: {
@@ -45,7 +45,7 @@ export const AuthProvider=({children})=>{
          
         const fetchBlogs=async()=>{
             try{
-         const response=await axios.get("http://localhost:4001/api/blogs/all-blogs")
+         const response=await axios.get(`${import.meta.env.VITE_B_URL}/api/blogs/all-blogs`)
          console.log(response);
          setBlogs(response.data);
             }
