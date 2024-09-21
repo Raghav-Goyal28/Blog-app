@@ -3,10 +3,12 @@ import { createBlog,deleteBlog, getAllBlogs, getMyBlogs, getSingleBlogs,updateBl
 import { isAuthenticated,isAdmin } from "../middleware/authUser.js";
 const router=express.Router();
 
-router.post("/create",isAdmin("admin"),createBlog);
-router.delete("/delete/:id",isAdmin("admin"),deleteBlog)
-router.get("/all-blogs",getAllBlogs)
-router.get("/single-blog/:id",getSingleBlogs)
-router.get("/my-blog",getMyBlogs);
-router.put("/update/:id",  isAdmin("admin"), updateBlog);
+
+
+router.post("/create", isAuthenticated, isAdmin("admin"), createBlog);
+router.delete("/delete/:id", isAuthenticated, isAdmin("admin"), deleteBlog);
+router.get("/all-blogs", getAllBlogs);
+router.get("/single-blog/:id", isAuthenticated, getSingleBlogs);
+router.get("/my-blog", isAuthenticated, isAdmin("admin"), getMyBlogs);
+router.put("/update/:id", isAuthenticated, isAdmin("admin"), updateBlog);
 export default router;
