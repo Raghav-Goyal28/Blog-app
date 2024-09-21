@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 function Sidebar({ setComponent }) {
   const { profile, setIsAuthenticated } = useAuth();
-  // console.log(profile?.user);
+   console.log(profile?.user);
   const navigateTo = useNavigate();
 
   const [show, setShow] = useState(false);
@@ -29,7 +29,7 @@ function Sidebar({ setComponent }) {
         { withCredentials: true }
       );
       toast.success(data.message);
-       localStorage.removeItem("jwt"); // deleting token in localStorage so that if user logged out it will goes to login page
+
       setIsAuthenticated(false);
       navigateTo("/login");
     } catch (error) {
@@ -63,7 +63,7 @@ function Sidebar({ setComponent }) {
             src={profile?.user?.photo?.url}
             alt=""
           />
-          <p className="text-lg font-semibold">{profile?.user?.name}</p>
+          <p className="text-lg font-semibold">{profile?.name}</p>
         </div>
         <ul className="space-y-6 mx-4">
           <button
