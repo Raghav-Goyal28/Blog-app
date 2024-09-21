@@ -17,6 +17,9 @@ export const AuthProvider=({children})=>{
            
                
           try {
+            let token = localStorage.getItem("jwt"); // Retrieve the token directly from the localStorage (Go to login.jsx)
+        console.log(token);
+        if (token) {
             // token should be let type variable because its value will change in every login. (in backend also)
             
              
@@ -30,10 +33,10 @@ export const AuthProvider=({children})=>{
                 }
               );
               console.log(data.user);
-              setProfile(data.user);
+              setProfile(data);
               setIsAuthenticated(true);
             }
-          
+          }
             
           catch (error) {
               console.log(error);

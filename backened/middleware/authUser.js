@@ -5,9 +5,9 @@ export const isAuthenticated = async (req, res, next) => {
     try {
       const token = req.cookies.jwt;
       console.log("Middleware : ", token);
-      if (!token) {
-        return res.status(401).json({ error: "User not authenticated" });
-      }
+     // if (!token) {
+       // return res.status(401).json({ error: "User not authenticated" });
+      //}
       const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
       const user = await User.findById(decoded.userId);
       if (!user) {
