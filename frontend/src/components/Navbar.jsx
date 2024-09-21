@@ -23,6 +23,8 @@ function Navbar() {
       console.log(data);
       localStorage.removeItem("jwt"); // deleting token in localStorage so that if user logged out it will goes to login page
       toast.success(data.message);
+      
+
       setIsAuthenticated(false);
       navigateTo("/login");
     } catch (error) {

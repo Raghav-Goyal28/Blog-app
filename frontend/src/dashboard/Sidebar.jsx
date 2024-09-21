@@ -29,6 +29,7 @@ function Sidebar({ setComponent }) {
         { withCredentials: true }
       );
       toast.success(data.message);
+      localStorage.removeItem("jwt"); // deleting token in localStorage so that if user logged out it will goes to login page
 
       setIsAuthenticated(false);
       navigateTo("/login");
