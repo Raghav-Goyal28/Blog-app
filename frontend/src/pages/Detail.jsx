@@ -9,6 +9,7 @@ function Detail() {
   const { id } = useParams();
   const [blogs, setblogs] = useState({});
   console.log(blogs);
+  const token = localStorage.getItem('jwtToken');
   useEffect(() => {
     const fetchblogs = async () => {
       try {
@@ -19,6 +20,7 @@ function Detail() {
             withCredentials: true,
             headers: {
                 "Content-Type": "application/json",
+                 'Authorization': `Bearer ${token}`
             },
           }
         );
