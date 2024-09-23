@@ -9,9 +9,10 @@ function Detail() {
   const { id } = useParams();
   const [blogs, setblogs] = useState({});
   console.log(blogs);
-  const token = localStorage.getItem('jwtToken');
+  
   useEffect(() => {
     const fetchblogs = async () => {
+      const token = localStorage.getItem('jwtToken');
       try {
         const { data } = await axios.get(
           `${import.meta.env.VITE_B_URL}/api/blogs/single-blog/${id}`,

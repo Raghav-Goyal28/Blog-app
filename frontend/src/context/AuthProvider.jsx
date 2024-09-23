@@ -15,10 +15,9 @@ export const AuthProvider=({children})=>{
 
         const fetchProfile = async () => {
            
-               
+          const token = localStorage.getItem('jwtToken');
           try {
-            let token = localStorage.getItem("jwt"); // Retrieve the token directly from the localStorage (Go to login.jsx)
-        console.log(token);
+         
         if (token) {
             // token should be let type variable because its value will change in every login. (in backend also)
             
@@ -29,6 +28,7 @@ export const AuthProvider=({children})=>{
                   withCredentials: true,
                   headers: {
                     "Content-Type": "application/json",
+                       'Authorization': `Bearer ${token}`
                   },
                 }
               );
