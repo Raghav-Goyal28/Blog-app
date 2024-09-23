@@ -29,6 +29,7 @@ function CreateBlog() {
     formData.append("about", about);
 
     formData.append("blogImage", blogImage);
+    const token = localStorage.getItem('jwtToken');
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_B_URL}/api/blogs/create`,
@@ -37,7 +38,7 @@ function CreateBlog() {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",
-            
+    'Authorization': `Bearer ${token}`
           },
         }
       );
