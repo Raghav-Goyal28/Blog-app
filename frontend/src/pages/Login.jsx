@@ -29,7 +29,10 @@ function Login() {
       );
       console.log(data);
       // Store the token in localStorage
-      localStorage.setItem('jwtToken', data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
+      localStorage.setItem('jwtToken', data.token);
+      
+      console.log('Token received:', data.token);
+      // storing token in localStorage so that if user refreshed the page it will not redirect again in login
       setProfile(data);
       setIsAuthenticated(true);
       setEmail("");
